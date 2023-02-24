@@ -1,5 +1,11 @@
 # profile-photo
 
+In server dir run:
+```sh
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser --email admin@example.com --username admin
+```
 docker
 
 In traefik\development dir run:

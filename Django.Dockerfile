@@ -11,6 +11,6 @@ COPY server/requirements.txt /code/
 RUN pip install -r requirements.txt
 
 COPY server /code/
-COPY entrypoints/django.entrypoint.sh /
+#COPY entrypoints/django.entrypoint.sh /
 
-ENTRYPOINT ["/django.entrypoint.sh"]
+#ENTRYPOINT ["django.entrypoint.sh"]

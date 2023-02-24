@@ -49,26 +49,26 @@ services:
       - "traefik.http.routers.myprojectdjango.tls.certresolver=letsencrypt"
       - "traefik.http.routers.myprojectdjango.entrypoints=websecure"
 
-  frontend:
-    build:
-      dockerfile: Frontend.Dockerfile
-      context: .
-    networks:
-      - traefik_webgateway
-      - private
-    depends_on:
-      - api
-    restart: on-failure
-    labels:
-      # Standard configuration
-      - "traefik.enable=true"
-      - "traefik.http.routers.myprojectfrontend.rule=Host(`${APP_HOST}`)"
-      - "traefik.http.services.myprojectfrontend.loadbalancer.server.port=80"
-      - "traefik.docker.network=traefik_webgateway"
-      # HTTPS configuration
-      - "traefik.http.routers.myprojectfrontend.tls=true"
-      - "traefik.http.routers.myprojectfrontend.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.myprojectfrontend.entrypoints=websecure"
+#  frontend:
+#    build:
+#      dockerfile: Frontend.Dockerfile
+#      context: .
+#    networks:
+#      - traefik_webgateway
+#      - private
+#    depends_on:
+#      - api
+#    restart: on-failure
+#    labels:
+#      # Standard configuration
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.myprojectfrontend.rule=Host(`${APP_HOST}`)"
+#      - "traefik.http.services.myprojectfrontend.loadbalancer.server.port=80"
+#      - "traefik.docker.network=traefik_webgateway"
+#      # HTTPS configuration
+#      - "traefik.http.routers.myprojectfrontend.tls=true"
+#      - "traefik.http.routers.myprojectfrontend.tls.certresolver=letsencrypt"
+#      - "traefik.http.routers.myprojectfrontend.entrypoints=websecure"
 
   staticfiles:
     build:
